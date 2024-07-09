@@ -1,0 +1,49 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block ProfileActive %}active{% endblock %}
+{% block body %}
+
+<h1 class="text-center my-3">Profile Information !!!</h1>
+<div class="row mt-5">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <div class="card mb-2" style="background-color: azure; border: 2px solid black;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="username" class="fs-5"><b>Username :</b></label>
+                        <input type="text" id="username" readonly class="form-control" value="{{ user.username }}" style="max-width: 20em;">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="fs-5"><b>Email :</b></label>
+                        <input type="text" id="email" readonly class="form-control" value="{{ user.email }}" style="max-width: 20em;">
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="first_name" class="fs-5"><b>First Name :</b></label>
+                        <input type="text" id="first_name" readonly class="form-control" value="{{ user.first_name }}" style="max-width: 20em;">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_name" class="fs-5"><b>Last Name :</b></label>
+                        <input type="text" id="last_name" readonly class="form-control" value="{{ user.last_name }}" style="max-width: 20em;">
+                    </div>
+                </div><br>
+                <label for="Bio" class="fs-5"><b>Bio :</b></label>
+                <textarea type="text" id="Bio" readonly class="form-control" style="max-width: 20em;">{{ profile_data.bio }}</textarea>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-5">
+        {% if profile_data.profile_picture %}
+        <img src="{{profile_data.profile_picture.url}}" alt="" style="max-width: 40em; border-radius: 1em;">
+        {% else %}
+        <p>No Image Added ...</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}LogIn{% endblock %}
+
+{% block body %}
+
+<p style="color: red;">
+    {{ form.errors }}
+</p>
+
+<h1 class="text-center mb-4"><b><u> Please Log In !!!</u></b></h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="text-center my-5">
+        <h4>{{ form.username.label }} :</h4> {{ form.username }} <br><br>
+        <h4>{{ form.password.label }} :</h4> {{ form.password }} <br><br>
+        <button type="submit" class="btn btn-outline-success form-control fs-5" style="max-width: 10em;">Submit</button>
+    </div>
+</form>
+
+{% endblock %}

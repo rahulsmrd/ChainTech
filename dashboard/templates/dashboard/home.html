@@ -1,0 +1,39 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Home{% endblock %}
+{% block HomeActive %}active{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        {% for post in homepage_list %}
+
+        <div class="card m-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        @{{ post.owner }}
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-5" style="color:darkgray;">
+                        Uploaded:{{ post.uploaded_at | date:"d M,Y h:i A" }}
+                    </div>
+                </div><hr>
+                <div class="text-center">
+                    <img src="{{ post.pic.url }}" alt="postPic" style="max-width: 20em;">
+                </div>
+                <hr>
+                <h4 class="text-center">{{ post.title }}</h4>
+
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

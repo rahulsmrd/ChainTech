@@ -1,0 +1,47 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<p style="color: red;">
+    {{ form.errors }}
+</p>
+
+<h1 class="text-center my-3">
+    Register Here !!!
+</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="row mt-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><b>{{ form.username.label }} :</b></h4>{{form.username}} <br>
+                    <p>{{ form.username.help_text }}</p>
+                </div>
+                <div class="col-md-6">
+                    <h4><b>{{ form.email.label }} :</b></h4>{{form.email}} <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><b>{{ form.password.label }} :</b></h4>{{form.password}} <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><b>{{ form.first_name.label }} :</b></h4>{{form.first_name}} <br>
+                </div>
+                <div class="col-md-6">
+                    <h4><b>{{ form.last_name.label }} :</b></h4>{{form.last_name}} <br>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-success form-control fs-5 mb-3" style="max-width: 8em;">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
